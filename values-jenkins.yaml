@@ -1,0 +1,17 @@
+# values-jenkins.yaml
+controller:
+  serviceType: LoadBalancer
+  nodeSelector:
+    role: cicd
+  persistence:
+    enabled: true
+    storageClass: "standard"    # el SC que sea default en tu clúster
+    size: 10Gi
+  resources:
+    requests:
+      cpu: "500m"
+      memory: "2Gi"
+  installPlugins:
+    - configuration-as-code:1836.vccda_4a_122a_a_e
+    - git:5.2.2
+
